@@ -9,7 +9,7 @@ Collins uses JGAAP to find the likely author. Here, we'll use a much simpler app
 ## In this repository
 
 - docs/ 
-	- Contains writing samples from E. A. Poe, W. H. Poe, James Fenimore Cooper, Nathaniel Hawthorne, Washington Irving, and John Neal (all mentioned by Collins in his essay as the set of likely authors + distractor authors)
+	- Contains writing samples from Edgar Allan Poe, William Henry Poe, James Fenimore Cooper, Nathaniel Hawthorne, Washington Irving, and John Neal (all mentioned by Collins in his essay as the set of 2 likely authors + 4 distractor authors; but not the actual test texts that Collins used in his attempt)
 - test/
 	- Contains the short story in question, "A Fragment"
 - top1000.txt
@@ -24,26 +24,29 @@ Collins uses JGAAP to find the likely author. Here, we'll use a much simpler app
 You'll need Scikit-learn, joblib, and Numpy. Need these? From the command line, run:
 
 ```pip install sklearn```
+
 ```pip install joblib```
+
 ```pip install numpy```
 
 ### Run the script
 
-**From command line:**
+From command line:
 
 ```python3 train-test-classifier.py```
 
-**In IDLE:**
+In IDLE:
 
 Open train-test-classifier.py in IDLE and run the module 
 
 ### Inputs / outputs
 
-**Inputs:** 17 .txt files to train, 1 .txt file to test (all needed inputs are included i this repo)
+Inputs: 17 .txt files to train, 1 .txt file to test (all needed inputs are included i this repo)
 
-**On-screen outputs:** classifier accuracy, then predicted author of "A Fragment." It should look like this:
+On-screen outputs: classifier accuracy, then predicted author of "A Fragment." It should look like this:
 
 > ```Classifier accuracy on training document set:  1.000```
+
 > ```Predicted author of anonymous document:  epoe```
 
-**File output:** traindocs_tf-array.csv (in case you want to take a look behind the scenes. Put the header and row names in yourself: the header is the contents of top1000.txt, and the row names are the contents of docs/ in alpha order)
+File output: traindocs_tf-array.csv (in case you want to take a look behind the scenes. Put the header and row names in yourself: the header is the contents of top1000.txt, and the row names are the contents of docs/ in alpha order)
