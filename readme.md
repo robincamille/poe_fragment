@@ -19,18 +19,31 @@ Collins uses JGAAP to find the likely author. Here, we'll use a much simpler app
 
 ## To run this script
 
-*From command line:*
+### Install required libraries
+
+You'll need Scikit-learn, joblib, and Numpy. Need these? From the command line, run:
+
+```pip install sklearn```
+```pip install joblib```
+```pip install numpy```
+
+### Run the script
+
+**From command line:**
 
 ```python3 train-test-classifier.py```
 
-*In IDLE:*
+**In IDLE:**
 
 Open train-test-classifier.py in IDLE and run the module 
 
-## Inputs / outputs:
+### Inputs / outputs
 
-*Inputs:* 17 .txt files to train, 1 .txt file to test
+**Inputs:** 17 .txt files to train, 1 .txt file to test (all needed inputs are included i this repo)
 
-*On-screen outputs:* classifier accuracy, then predicted author of "A Fragment"
+**On-screen outputs:** classifier accuracy, then predicted author of "A Fragment." It should look like this:
 
-*File output:* traindocs_tf-array.csv (in case you want to take a look behind the scenes. Put the header and row names in yourself: the header is the contents of top1000.txt, and the row names are the contents of docs/ in alpha order)
+> ```Classifier accuracy on training document set:  1.000```
+> ```Predicted author of anonymous document:  epoe```
+
+**File output:** traindocs_tf-array.csv (in case you want to take a look behind the scenes. Put the header and row names in yourself: the header is the contents of top1000.txt, and the row names are the contents of docs/ in alpha order)
