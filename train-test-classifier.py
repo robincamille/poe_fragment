@@ -35,6 +35,7 @@ traindocsfiles = ['cooper_deerslayer.txt',\
     'wpoe_recollections.txt',\
     'wpoe_the-pirate.txt']
 
+print('Loading corpus of documents to compare...')
 for doc in traindocsfiles:
     with open('docs/' + doc, 'r') as fulltext:
         fulltext = fulltext.read()
@@ -62,14 +63,17 @@ def wordfreq(docs):
     tfarray = tf.fit_transform(alltexts)
     return tfarray
 
-#Set up term frequency arrays for training document set
+#Set up term frequency array (spreadsheet) for training document set
+print('Setting up term frequency arrays...')
 traintf = wordfreq(traindocs).toarray()
 
 #Output this array as a CSV, in case you want to take a look behind the scenes
 #Header is contents of top1000.txt, column order is traindocsfiles
 numpy.savetxt("traindocs_tf-array.csv",traintf,delimiter="\t")
+print('Term frequency data saved as traindocs_tf-array.csv')
 
 #Set up classifier
+print('Feeding documents into the classifier to train it...')
 gnb = GaussianNB()
 preds = gnb.fit(traintf, targets).predict(traintf)
 scoretrain = "%.3f" % gnb.score(traintf, targets)
@@ -80,6 +84,7 @@ classif = joblib.dump(gnb,'myclassifier')
 
 #The doc whose authorship we don't know, or do know and want to
 #use to test the classifier
+print('\nSetting up anonymous document to test...')
 testdocs = []
 testdocsfiles = ['anon_a-fragment.txt']
 for doc in testdocsfiles:
